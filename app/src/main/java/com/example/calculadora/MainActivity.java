@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btnCA, btnC, btnPorcentaje, btnEntre, btnPor, btnMenos, btnMas, btnIgual, btnPunto, btn1, btn2,
     btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState); //super para llamar el metodo de una clase mayor, o sea la del padre
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        btnCA = (Button) findViewById(R.id.btnCA);
+        btnCA = (Button) findViewById(R.id.btnCA); // Todos los elementos de xml son vistas
         btnC = (Button) findViewById(R.id.btnC);
         btnPorcentaje = (Button) findViewById(R.id.btnPorcentaje);
         btnEntre = (Button) findViewById(R.id.btnEntre);
@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         btn9 = (Button) findViewById(R.id.btn9);
         btn0 = (Button) findViewById(R.id.btn0);
 
+        btn0.setOnClickListener(this); // esto es el main activity transformado en listener :v
+
         btnCA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,4 +62,9 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,"Otra forma de hacerlo xdxdxd",Toast.LENGTH_SHORT).show();
     }
 
+
+    @Override
+    public void onClick(View view) { // este es para el listener del main activity (this)
+
+    }
 }
